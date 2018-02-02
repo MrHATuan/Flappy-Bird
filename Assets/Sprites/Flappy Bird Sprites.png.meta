@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 23a2e596e7c90af46b7535ff052b27af
-timeCreated: 1517464406
+timeCreated: 1517559108
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -27,7 +27,7 @@ TextureImporter:
     21300040: Bronze Medal
     21300042: Gold Medal
     21300044: White Medal
-    21300046: Flappy Bird Sprites_29
+    21300046: Pause Button
     21300048: Replay Button
     21300050: Ground
     21300052: Button
@@ -452,7 +452,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flappy Bird Sprites_29
+      name: Pause Button
       rect:
         serializedVersion: 2
         x: 542

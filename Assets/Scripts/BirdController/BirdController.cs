@@ -23,6 +23,7 @@ public class BirdController : MonoBehaviour {
 	private GameObject spawner;
 
 	public float flag = 0;
+	public int score = 0;
 
 	// Use this for initialization
 	void Awake () {
@@ -77,15 +78,25 @@ public class BirdController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D target) {
 		if(target.tag == "PipeHolder") {
+			score++;
+			if(GamePlayController.instance != null) {
+				GamePlayController.instance._SetScore (score);
+			}
 			audioSoure.PlayOneShot (pingClip);
 		}
 	}
 	void OnCollisionEnter2D(Collision2D target) {
 		if(target.gameObject.tag == "Pipe" || target.gameObject.tag == "Ground") {
 			flag = 1;
-			Destroy (spawner);
-			audioSoure.PlayOneShot (diedClip);
-			anim.SetTrigger ("Died");
+			if (isAlive) {
+				isAlive = false;
+				Destroy (spawner);
+				audioSoure.PlayOneShot (diedClip);
+				anim.SetTrigger ("Died");
+			}
+			if(GamePlayController.instance != null) {
+				GamePlayController.instance._BirdDiedShowPanel ();
+			}
 		}
 	}
 
